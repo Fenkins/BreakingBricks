@@ -23,6 +23,16 @@
 
 -(void)didMoveToView:(SKView *)view {
     self.backgroundColor = [SKColor whiteColor];
+    
+    
+    // Adding physics to the scene
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    
+    // Changing gravity settings
+    self.physicsWorld.gravity = CGVectorMake(0.0, -5.0);
+    
+    
+    // Setting up the ball
     SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
     ball.position = CGPointMake(CGRectGetMidX(self.frame),
                                 CGRectGetMidY(self.frame));
