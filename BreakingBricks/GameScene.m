@@ -22,6 +22,12 @@
 }
 
 -(void)didMoveToView:(SKView *)view {
+    CGRect screenSize = [[UIScreen mainScreen] bounds];
+    self.backgroundColor = [SKColor blueColor];
+    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
+    CGPoint ballCenter = CGPointMake(screenSize.size.width/2, screenSize.size.height/2);
+    ball.position = ballCenter;
+    [self addChild:ball];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
