@@ -10,6 +10,26 @@
 
 @implementation GameScene
 
+- (void)addBall {
+    // Setting up the ball
+    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
+    ball.position = CGPointMake(CGRectGetMidX(self.frame),
+                                CGRectGetMidY(self.frame));
+    ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.size.height/2];
+    // The roughness of the surface of the physicsBody
+    ball.physicsBody.friction = 0.000001;
+    // The resistance ball encounters while moving trough the scene
+    ball.physicsBody.linearDamping = 0;
+    // Bounciness of the physicsBody
+    ball.physicsBody.restitution = 1;
+    [self addChild:ball];
+    
+    // Creating vector
+    CGVector myVector = CGVectorMake(50.0, 20.0);
+    // Applying vector to physicsBody
+    [ball.physicsBody applyImpulse:myVector];
+}
+
 -(void)didMoveToView:(SKView *)view {
     self.backgroundColor = [SKColor whiteColor];
     
@@ -26,17 +46,7 @@
     self.physicsWorld.gravity = CGVectorMake(0.0, -5.0);
     
     
-    // Setting up the ball
-    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
-    ball.position = CGPointMake(CGRectGetMidX(self.frame),
-                                CGRectGetMidY(self.frame));
-    ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.size.height/2];
-    [self addChild:ball];
-    
-    // Creating vector
-    CGVector myVector = CGVectorMake(50.0, 20.0);
-    // Applying vector to physicsBody
-    [ball.physicsBody applyImpulse:myVector];
+    [self addBall];
     
 }
 
