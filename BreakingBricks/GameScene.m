@@ -28,6 +28,20 @@
     }
 }
 
+- (void)addBricks {
+    for (int i=0; i<4; i++) {
+        SKSpriteNode *brick = [SKSpriteNode spriteNodeWithImageNamed:@"brick"];
+        
+        // adding a physics body
+        brick.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:brick.frame.size];
+        brick.physicsBody.dynamic = NO;
+        
+        int xPos = self.frame.size.width/5 * (i+1);
+        int yPos = self.frame.size.height - 50;
+        brick.position = CGPointMake(xPos, yPos);
+        [self addChild:brick];
+    }
+}
 
 - (void)addBall {
     // Setting up the ball
@@ -75,11 +89,12 @@
     
     
     // Changing gravity settings
-    self.physicsWorld.gravity = CGVectorMake(0.0, -4.0);
+    self.physicsWorld.gravity = CGVectorMake(0.0, -2.0);
     
     
     [self addBall];
     [self addPlayer];
+    [self addBricks];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
