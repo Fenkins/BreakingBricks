@@ -9,6 +9,20 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 
+static const uint32_t ballCategory  = 1; // 00000000000000000000000000000001
+static const uint32_t brickCategory = 2; // 00000000000000000000000000000010
+static const uint32_t paddleCategory = 4;// we wonna flip just one bit, no more, no less
+static const uint32_t edgeCategory = 8;  // 00000000000000000000000000001000
+
+/*
+ // these are effectively the same
+ static const uint32_t ballCategory = 0x1;
+ static const uint32_t brickCategory = 0x1 << 1;
+ static const uint32_t paddleCategory = 0x1 << 2;
+ static const uint32_t edgeCategory = 0x1 << 3;
+ */
+
+
 @implementation SKScene (Unarchive)
 
 + (instancetype)unarchiveFromFile:(NSString *)file {
