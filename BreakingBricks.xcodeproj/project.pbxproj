@@ -23,6 +23,9 @@
 		AA87A8381B56567C00A0A026 /* brick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8321B56567C00A0A026 /* brick@2x.png */; };
 		AA87A8391B56567C00A0A026 /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8331B56567C00A0A026 /* paddle.png */; };
 		AA87A83A1B56567C00A0A026 /* paddle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8341B56567C00A0A026 /* paddle@2x.png */; };
+		AACE645A1B614CC600FA195D /* blip.caf in Resources */ = {isa = PBXBuildFile; fileRef = AACE64571B614CC600FA195D /* blip.caf */; };
+		AACE645B1B614CC600FA195D /* brickhit.caf in Resources */ = {isa = PBXBuildFile; fileRef = AACE64581B614CC600FA195D /* brickhit.caf */; };
+		AACE645C1B614CC600FA195D /* gameover.caf in Resources */ = {isa = PBXBuildFile; fileRef = AACE64591B614CC600FA195D /* gameover.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		AA87A8321B56567C00A0A026 /* brick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brick@2x.png"; sourceTree = "<group>"; };
 		AA87A8331B56567C00A0A026 /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
 		AA87A8341B56567C00A0A026 /* paddle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddle@2x.png"; sourceTree = "<group>"; };
+		AACE64571B614CC600FA195D /* blip.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blip.caf; sourceTree = "<group>"; };
+		AACE64581B614CC600FA195D /* brickhit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brickhit.caf; sourceTree = "<group>"; };
+		AACE64591B614CC600FA195D /* gameover.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameover.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				AA87A8011B5649D300A0A026 /* BreakingBricks */,
+				AACE645D1B614CCE00FA195D /* Supplied Sounds */,
+				AA87A83B1B56568500A0A026 /* Supplied Images */,
 				AA87A8201B5649D300A0A026 /* BreakingBricksTests */,
 				AA87A8001B5649D300A0A026 /* Products */,
-				AA87A83B1B56568500A0A026 /* Supplied Images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +161,16 @@
 				AA87A8341B56567C00A0A026 /* paddle@2x.png */,
 			);
 			name = "Supplied Images";
+			sourceTree = "<group>";
+		};
+		AACE645D1B614CCE00FA195D /* Supplied Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				AACE64571B614CC600FA195D /* blip.caf */,
+				AACE64581B614CC600FA195D /* brickhit.caf */,
+				AACE64591B614CC600FA195D /* gameover.caf */,
+			);
+			name = "Supplied Sounds";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,13 +256,16 @@
 				AA87A8181B5649D300A0A026 /* LaunchScreen.xib in Resources */,
 				AA87A8391B56567C00A0A026 /* paddle.png in Resources */,
 				AA87A8381B56567C00A0A026 /* brick@2x.png in Resources */,
+				AACE645A1B614CC600FA195D /* blip.caf in Resources */,
 				AA87A8151B5649D300A0A026 /* Images.xcassets in Resources */,
+				AACE645B1B614CC600FA195D /* brickhit.caf in Resources */,
 				AA87A8351B56567C00A0A026 /* ball.png in Resources */,
 				AA87A80D1B5649D300A0A026 /* GameScene.sks in Resources */,
 				AA87A82E1B564AD200A0A026 /* Entitlements.plist in Resources */,
 				AA87A8131B5649D300A0A026 /* Main.storyboard in Resources */,
 				AA87A8361B56567C00A0A026 /* ball@2x.png in Resources */,
 				AA87A8371B56567C00A0A026 /* brick.png in Resources */,
+				AACE645C1B614CC600FA195D /* gameover.caf in Resources */,
 				AA87A83A1B56567C00A0A026 /* paddle@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +486,7 @@
 				AA87A8291B5649D300A0A026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA87A82A1B5649D300A0A026 /* Build configuration list for PBXNativeTarget "BreakingBricksTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +495,7 @@
 				AA87A82C1B5649D300A0A026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -18,6 +18,7 @@ static const uint32_t ballCategory  = 1; // 00000000000000000000000000000001
 static const uint32_t brickCategory = 2; // 00000000000000000000000000000010
 static const uint32_t paddleCategory = 4;// we wonna flip just one bit, no more, no less
 static const uint32_t edgeCategory = 8;  // 00000000000000000000000000001000
+static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the screen
 
 /*
  // these are effectively the same
@@ -32,7 +33,29 @@ static const uint32_t edgeCategory = 8;  // 00000000000000000000000000001000
 @implementation GameScene
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {
-    NSLog(@"boing");
+    SKPhysicsBody *notTheBall;
+    // Detecting whether if bodyA or bodyB is or is not the ball, this is based on the fact that ball has a smallest category number (00...01)
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+        notTheBall = contact.bodyB;
+    } else {
+        notTheBall = contact.bodyA;
+    }
+    
+    // So we determined notTheBrick contacts, now we could figure out when the ball is contacting with the bricks to remove them
+    if (notTheBall.categoryBitMask == brickCategory) {
+        SKAction *playSFX = [SKAction playSoundFileNamed:@"brickhit.caf" waitForCompletion:NO];
+        // We dont really care who will play this sound so lets just tell the scene to do that
+        [self runAction:playSFX];
+        [notTheBall.node removeFromParent];
+    }
+    if (notTheBall.categoryBitMask == paddleCategory) {
+        SKAction *playSFX = [SKAction playSoundFileNamed:@"blip.caf" waitForCompletion:NO];
+        // We dont really care who will play this sound so lets just tell the scene to do that
+        [self runAction:playSFX];
+    }
+    if (notTheBall.categoryBitMask == bottomEdgeCategory) {
+        NSLog(@"GAME OVER");
+    }
 }
 
 
@@ -46,6 +69,13 @@ static const uint32_t edgeCategory = 8;  // 00000000000000000000000000001000
             self.paddle.position = CGPointMake(self.frame.size.width - self.paddle.size.width/2, 100);
         } else self.paddle.position = newPosition;
     }
+}
+
+- (void)addBottomEdge {
+    SKNode *bottomEdge = [SKNode node];
+    bottomEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointMake(0, 1) toPoint:CGPointMake(self.size.width, 1)];
+    bottomEdge.physicsBody.categoryBitMask = bottomEdgeCategory;
+    [self addChild:bottomEdge];
 }
 
 - (void)addBricks {
@@ -79,8 +109,8 @@ static const uint32_t edgeCategory = 8;  // 00000000000000000000000000001000
     ball.physicsBody.restitution = 1;
     // Giving the ball its own category
     ball.physicsBody.categoryBitMask = ballCategory;
-    // What categories we are interested to receive notifications about contact
-    ball.physicsBody.contactTestBitMask = brickCategory | paddleCategory;
+    // What categories we are interested to receive notifications about contact (didBeginContact or didEndContact)
+    ball.physicsBody.contactTestBitMask = brickCategory | paddleCategory | bottomEdgeCategory;
     // CollisionMask are all on by default (0000 etc) by overriding its behaviour we are making it (0000 etc) so ball will interact only with categories named below
     //ball.physicsBody.collisionBitMask = edgeCategory | paddleCategory;
     
@@ -132,6 +162,7 @@ static const uint32_t edgeCategory = 8;  // 00000000000000000000000000001000
     [self addBall];
     [self addPlayer];
     [self addBricks];
+    [self addBottomEdge];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
