@@ -12,6 +12,10 @@
 
 @property (nonatomic) SKSpriteNode *paddle;
 
+@property (strong,nonatomic) SKAction *playBallBlipSound;
+@property (strong,nonatomic) SKAction *playBrickHitSound;
+@property (strong,nonatomic) SKAction *playGameOverSound;
+
 @end
 
 static const uint32_t ballCategory  = 1; // 00000000000000000000000000000001
@@ -43,18 +47,16 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     
     // So we determined notTheBrick contacts, now we could figure out when the ball is contacting with the bricks to remove them
     if (notTheBall.categoryBitMask == brickCategory) {
-        SKAction *playSFX = [SKAction playSoundFileNamed:@"brickhit.caf" waitForCompletion:NO];
-        // We dont really care who will play this sound so lets just tell the scene to do that
-        [self runAction:playSFX];
+        [self runAction:self.playBrickHitSound];
         [notTheBall.node removeFromParent];
     }
     if (notTheBall.categoryBitMask == paddleCategory) {
-        SKAction *playSFX = [SKAction playSoundFileNamed:@"blip.caf" waitForCompletion:NO];
-        // We dont really care who will play this sound so lets just tell the scene to do that
-        [self runAction:playSFX];
+        [self runAction:self.playBallBlipSound];
     }
     if (notTheBall.categoryBitMask == bottomEdgeCategory) {
-        NSLog(@"GAME OVER");
+        EndScene *end = [EndScene sceneWithSize:self.size];
+        [self runAction:self.playGameOverSound];
+        [self.view presentScene:end];
     }
 }
 
@@ -163,6 +165,11 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     [self addPlayer];
     [self addBricks];
     [self addBottomEdge];
+    
+    // init sounds
+    self.playBallBlipSound = [SKAction playSoundFileNamed:@"blip.caf" waitForCompletion:NO];
+    self.playBrickHitSound = [SKAction playSoundFileNamed:@"brickhit.caf" waitForCompletion:NO];
+    self.playGameOverSound = [SKAction playSoundFileNamed:@"gameover.caf" waitForCompletion:NO];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

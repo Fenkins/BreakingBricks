@@ -1,14 +1,13 @@
 //
-//  GameScene.h
+//  EndScene.h
 //  BreakingBricks
 //
-
+//  Created by Fenkins on 23/07/15.
 //  Copyright (c) 2015 Fenkins. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "EndScene.h"
 
-@interface GameScene : SKScene <SKPhysicsContactDelegate>
+@interface EndScene : SKScene
 
 @end
