@@ -14,7 +14,6 @@
 
 @property (strong,nonatomic) SKAction *playBallBlipSound;
 @property (strong,nonatomic) SKAction *playBrickHitSound;
-@property (strong,nonatomic) SKAction *playGameOverSound;
 
 @end
 
@@ -55,8 +54,7 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     }
     if (notTheBall.categoryBitMask == bottomEdgeCategory) {
         EndScene *end = [EndScene sceneWithSize:self.size];
-        [self runAction:self.playGameOverSound];
-        [self.view presentScene:end];
+        [self.view presentScene:end transition:[SKTransition doorsCloseHorizontalWithDuration:0.4]];
     }
 }
 
@@ -65,11 +63,12 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         CGPoint newPosition = CGPointMake(location.x, 100);
+        // limiting the place where the paddle could go on the screen
         if (location.x <= self.paddle.size.width/2) {
             self.paddle.position = CGPointMake(self.paddle.size.width/2, 100);
         } else if (location.x >= self.frame.size.width - self.paddle.size.width/2) {
             self.paddle.position = CGPointMake(self.frame.size.width - self.paddle.size.width/2, 100);
-        } else self.paddle.position = newPosition;
+        } else self.paddle.position = newPosition; // setting the paddle position according to touches position
     }
 }
 
@@ -169,7 +168,6 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     // init sounds
     self.playBallBlipSound = [SKAction playSoundFileNamed:@"blip.caf" waitForCompletion:NO];
     self.playBrickHitSound = [SKAction playSoundFileNamed:@"brickhit.caf" waitForCompletion:NO];
-    self.playGameOverSound = [SKAction playSoundFileNamed:@"gameover.caf" waitForCompletion:NO];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
