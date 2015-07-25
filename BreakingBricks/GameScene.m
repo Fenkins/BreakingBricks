@@ -101,6 +101,9 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"orb0000"];
     ball.position = CGPointMake(CGRectGetMidX(self.frame),
                                 CGRectGetMidY(self.frame));
+    ball.xScale = 0.6;
+    ball.yScale = 0.6;
+    
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.size.height/2];
     // The roughness of the surface of the physicsBody
     ball.physicsBody.friction = 0.000001;
@@ -115,14 +118,20 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     // CollisionMask are all on by default (0000 etc) by overriding its behaviour we are making it (0000 etc) so ball will interact only with categories named below
     //ball.physicsBody.collisionBitMask = edgeCategory | paddleCategory;
     
+
     // Getting reference to the atlas
     SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"orb"];
     // Getting the array of names of the objects in that atlas and sorting them out
     NSArray *atlasArray = [atlas textureNames];
     NSArray *sortedAtlasArray = [atlasArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSArray *reverseSortedArray = [[sortedAtlasArray reverseObjectEnumerator]allObjects];
     // Creating array to hold those image textures
     NSMutableArray *orbTextures = [NSMutableArray array];
     for (NSString *filename in sortedAtlasArray) {
+        SKTexture *texture = [atlas textureNamed:filename];
+        [orbTextures addObject:texture];
+    }
+    for (NSString *filename in reverseSortedArray) {
         SKTexture *texture = [atlas textureNamed:filename];
         [orbTextures addObject:texture];
     }
@@ -130,6 +139,7 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     SKAction *keepGlowing = [SKAction repeatActionForever:glow];
     
     [ball runAction:keepGlowing];
+    
     
     // Add the sprite node to the scene
     [self addChild:ball];
