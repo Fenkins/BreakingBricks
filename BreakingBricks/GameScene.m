@@ -98,7 +98,7 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
 
 - (void)addBall {
     // Setting up the ball
-    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
+    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"orb0000"];
     ball.position = CGPointMake(CGRectGetMidX(self.frame),
                                 CGRectGetMidY(self.frame));
     ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.size.height/2];
@@ -114,6 +114,22 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     ball.physicsBody.contactTestBitMask = brickCategory | paddleCategory | bottomEdgeCategory;
     // CollisionMask are all on by default (0000 etc) by overriding its behaviour we are making it (0000 etc) so ball will interact only with categories named below
     //ball.physicsBody.collisionBitMask = edgeCategory | paddleCategory;
+    
+    // Getting reference to the atlas
+    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"orb"];
+    // Getting the array of names of the objects in that atlas and sorting them out
+    NSArray *atlasArray = [atlas textureNames];
+    NSArray *sortedAtlasArray = [atlasArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    // Creating array to hold those image textures
+    NSMutableArray *orbTextures = [NSMutableArray array];
+    for (NSString *filename in sortedAtlasArray) {
+        SKTexture *texture = [atlas textureNamed:filename];
+        [orbTextures addObject:texture];
+    }
+    SKAction *glow = [SKAction animateWithTextures:orbTextures timePerFrame:0.1];
+    SKAction *keepGlowing = [SKAction repeatActionForever:glow];
+    
+    [ball runAction:keepGlowing];
     
     // Add the sprite node to the scene
     [self addChild:ball];

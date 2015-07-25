@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA2444B11B642D71000A6963 /* bricks.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AA2444B01B642D71000A6963 /* bricks.atlas */; };
+		AA2444B31B642F63000A6963 /* orb.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AA2444B21B642F63000A6963 /* orb.atlas */; };
 		AA5B31E31B617CD900197971 /* blip.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA5B31E01B6170CB00197971 /* blip.caf */; };
 		AA5B31E41B617CDC00197971 /* brickhit.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA5B31E11B6170CB00197971 /* brickhit.caf */; };
 		AA5B31E51B617CDF00197971 /* gameover.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA5B31E21B6170CB00197971 /* gameover.caf */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		AA2444B01B642D71000A6963 /* bricks.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bricks.atlas; sourceTree = "<group>"; };
+		AA2444B21B642F63000A6963 /* orb.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = orb.atlas; sourceTree = "<group>"; };
 		AA5B31E01B6170CB00197971 /* blip.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = blip.caf; path = BreakingBricks/blip.caf; sourceTree = "<group>"; };
 		AA5B31E11B6170CB00197971 /* brickhit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = brickhit.caf; path = BreakingBricks/brickhit.caf; sourceTree = "<group>"; };
 		AA5B31E21B6170CB00197971 /* gameover.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = gameover.caf; path = BreakingBricks/gameover.caf; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		AA87A83B1B56568500A0A026 /* Supplied Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA2444B21B642F63000A6963 /* orb.atlas */,
 				AA2444B01B642D71000A6963 /* bricks.atlas */,
 			);
 			name = "Supplied Images";
@@ -246,6 +249,7 @@
 				AA87A8181B5649D300A0A026 /* LaunchScreen.xib in Resources */,
 				AA5B31E31B617CD900197971 /* blip.caf in Resources */,
 				AA87A8151B5649D300A0A026 /* Images.xcassets in Resources */,
+				AA2444B31B642F63000A6963 /* orb.atlas in Resources */,
 				AA5B31E41B617CDC00197971 /* brickhit.caf in Resources */,
 				AA87A80D1B5649D300A0A026 /* GameScene.sks in Resources */,
 				AA2444B11B642D71000A6963 /* bricks.atlas in Resources */,
