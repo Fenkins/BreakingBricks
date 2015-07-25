@@ -155,7 +155,7 @@ static const uint32_t bottomEdgeCategory = 16; // line at the bottom of the scre
     
     
     // Changing gravity settings
-    self.physicsWorld.gravity = CGVectorMake(0.0, -2.0);
+    self.physicsWorld.gravity = CGVectorMake(0.0, -1.0);
     
     // Setting the contactDelegate to listen contacts from .self
     self.physicsWorld.contactDelegate = self;
