@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA2444B11B642D71000A6963 /* bricks.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AA2444B01B642D71000A6963 /* bricks.atlas */; };
 		AA5B31E31B617CD900197971 /* blip.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA5B31E01B6170CB00197971 /* blip.caf */; };
 		AA5B31E41B617CDC00197971 /* brickhit.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA5B31E11B6170CB00197971 /* brickhit.caf */; };
 		AA5B31E51B617CDF00197971 /* gameover.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA5B31E21B6170CB00197971 /* gameover.caf */; };
@@ -20,12 +21,6 @@
 		AA87A8181B5649D300A0A026 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8161B5649D300A0A026 /* LaunchScreen.xib */; };
 		AA87A8241B5649D300A0A026 /* BreakingBricksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA87A8231B5649D300A0A026 /* BreakingBricksTests.m */; };
 		AA87A82E1B564AD200A0A026 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA87A82D1B564AD200A0A026 /* Entitlements.plist */; };
-		AA87A8351B56567C00A0A026 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A82F1B56567C00A0A026 /* ball.png */; };
-		AA87A8361B56567C00A0A026 /* ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8301B56567C00A0A026 /* ball@2x.png */; };
-		AA87A8371B56567C00A0A026 /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8311B56567C00A0A026 /* brick.png */; };
-		AA87A8381B56567C00A0A026 /* brick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8321B56567C00A0A026 /* brick@2x.png */; };
-		AA87A8391B56567C00A0A026 /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8331B56567C00A0A026 /* paddle.png */; };
-		AA87A83A1B56567C00A0A026 /* paddle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA87A8341B56567C00A0A026 /* paddle@2x.png */; };
 		AACE64601B616F5700FA195D /* EndScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AACE645F1B616F5700FA195D /* EndScene.m */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA2444B01B642D71000A6963 /* bricks.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bricks.atlas; sourceTree = "<group>"; };
 		AA5B31E01B6170CB00197971 /* blip.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = blip.caf; path = BreakingBricks/blip.caf; sourceTree = "<group>"; };
 		AA5B31E11B6170CB00197971 /* brickhit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = brickhit.caf; path = BreakingBricks/brickhit.caf; sourceTree = "<group>"; };
 		AA5B31E21B6170CB00197971 /* gameover.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = gameover.caf; path = BreakingBricks/gameover.caf; sourceTree = "<group>"; };
@@ -60,12 +56,6 @@
 		AA87A8221B5649D300A0A026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA87A8231B5649D300A0A026 /* BreakingBricksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakingBricksTests.m; sourceTree = "<group>"; };
 		AA87A82D1B564AD200A0A026 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		AA87A82F1B56567C00A0A026 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
-		AA87A8301B56567C00A0A026 /* ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball@2x.png"; sourceTree = "<group>"; };
-		AA87A8311B56567C00A0A026 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
-		AA87A8321B56567C00A0A026 /* brick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brick@2x.png"; sourceTree = "<group>"; };
-		AA87A8331B56567C00A0A026 /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
-		AA87A8341B56567C00A0A026 /* paddle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddle@2x.png"; sourceTree = "<group>"; };
 		AACE645E1B616F5700FA195D /* EndScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndScene.h; sourceTree = "<group>"; };
 		AACE645F1B616F5700FA195D /* EndScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,12 +148,7 @@
 		AA87A83B1B56568500A0A026 /* Supplied Images */ = {
 			isa = PBXGroup;
 			children = (
-				AA87A82F1B56567C00A0A026 /* ball.png */,
-				AA87A8301B56567C00A0A026 /* ball@2x.png */,
-				AA87A8311B56567C00A0A026 /* brick.png */,
-				AA87A8321B56567C00A0A026 /* brick@2x.png */,
-				AA87A8331B56567C00A0A026 /* paddle.png */,
-				AA87A8341B56567C00A0A026 /* paddle@2x.png */,
+				AA2444B01B642D71000A6963 /* bricks.atlas */,
 			);
 			name = "Supplied Images";
 			sourceTree = "<group>";
@@ -259,19 +244,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA87A8181B5649D300A0A026 /* LaunchScreen.xib in Resources */,
-				AA87A8391B56567C00A0A026 /* paddle.png in Resources */,
-				AA87A8381B56567C00A0A026 /* brick@2x.png in Resources */,
 				AA5B31E31B617CD900197971 /* blip.caf in Resources */,
 				AA87A8151B5649D300A0A026 /* Images.xcassets in Resources */,
 				AA5B31E41B617CDC00197971 /* brickhit.caf in Resources */,
-				AA87A8351B56567C00A0A026 /* ball.png in Resources */,
 				AA87A80D1B5649D300A0A026 /* GameScene.sks in Resources */,
+				AA2444B11B642D71000A6963 /* bricks.atlas in Resources */,
 				AA87A82E1B564AD200A0A026 /* Entitlements.plist in Resources */,
 				AA87A8131B5649D300A0A026 /* Main.storyboard in Resources */,
-				AA87A8361B56567C00A0A026 /* ball@2x.png in Resources */,
-				AA87A8371B56567C00A0A026 /* brick.png in Resources */,
 				AA5B31E51B617CDF00197971 /* gameover.caf in Resources */,
-				AA87A83A1B56567C00A0A026 /* paddle@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
